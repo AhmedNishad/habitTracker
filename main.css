@@ -1,0 +1,31 @@
+
+.dayCards{
+    display: flex;
+    width: 70%;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.calanderHeader{
+    text-align: center;
+}
+
+.dayCard{
+    border: 1px solid #333;
+    flex-basis: 14%;
+    margin: 1%;
+    text-align: center;
+}
+.dayCard:hover{
+    opacity: 0.6;
+    background: #DDD;
+    transition-duration: 0.5s;
+}
+
+.currentDay{
+    background: rgb(243, 255, 77);
+}
+
+.startDay{
+    background: rgb(65, 141, 255);
+}
