@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {Route, Link, BrowserRouter as Router} from 'react-router-dom'
+import {Route, Switch, Link, BrowserRouter as Router} from 'react-router-dom'
 
 import AddHabit from './addhabit'
 import HabitList from './habitlist'
@@ -60,17 +60,17 @@ class App extends React.Component{
         }
         
         return (
-            <Router>
-                <div>
-                    <Route exact path='/' render={()=> <h2>Track your Habits and Grow!</h2>} /> 
+            <Router basename="/habitTracker" >
+                
+                    <Route path='/' render={()=> <h2>Track your Habits and Grow!</h2>} /> 
                     {/* <AddHabit path='/' habitList={this.state.habitList} onHabitAdded={this.habitAdded.bind(this)}/> */}
-                    <Route exact path='/' render={(props)=> <AddHabit {...props} path='/' habitList={this.state.habitList} onHabitAdded={this.habitAdded.bind(this)}/> } />
+                    <Route path='/' render={(props)=> <AddHabit {...props} path='/' habitList={this.state.habitList} onHabitAdded={this.habitAdded.bind(this)}/> } />
 
-                    <Route exact path='/' render={(props)=> <HabitList {...props} deleteHabit={this.deleteHabit.bind(this)} habitList={this.state.habitList} />} />
+                    <Route path='/' render={(props)=> <HabitList {...props} deleteHabit={this.deleteHabit.bind(this)} habitList={this.state.habitList} />} />
 
                     <Route path='/habit/:id' render={(props)=> <Habit {...props} habitList={this.state.habitList}/>} />
                     {/*< HabitList path='' habitList={this.state.habitList} /> */}
-                </div>
+    
             
             </Router>
             
