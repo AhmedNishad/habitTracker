@@ -16,7 +16,7 @@ class AddHabit extends React.Component{
         console.log("adding habit")
         let existingHabbits = this.props.habitList
         existingHabbits.push({
-            id: existingHabbits.length + 1,
+            id: Math.floor(Math.random() * 10000),
             habitName: this.state.newHabit,
             streaks: [],
             habitStart: this.state.habitStart,
@@ -24,7 +24,7 @@ class AddHabit extends React.Component{
         })
 
         localStorage.setItem('habitList', JSON.stringify(existingHabbits))
-        console.log(existingHabbits)
+        
         this.props.onHabitAdded(existingHabbits)
     }
 
@@ -32,7 +32,7 @@ class AddHabit extends React.Component{
         this.setState({
             newHabit: e.target.value
         })
-        console.log(this.state.newHabit)
+        
     }
 
     render(){

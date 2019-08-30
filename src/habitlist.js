@@ -13,11 +13,12 @@ class HabitList extends React.Component{
         let habitDOM;
 
         if(this.props.habitList !=[]){
-            habitDOM = this.props.habitList.map(habit=>{
-            return(<li key={habit.id}>
+            habitDOM = this.props.habitList.map(habit=>
+            <li key={habit.id} data-id={habit.id}>
                 <Link to={`/habit/${habit.id}`} >{habit.habitName}</Link>
-            </li>)
-            }
+                <span onClick={this.props.deleteHabit} className='deleteHabit'>   X</span>
+            </li>
+            
         )
         } else{
             habitDOM = "No Habits Added Yet"
